@@ -21,10 +21,13 @@ the following tools
 1. Copy the project,busara_recruit, to any directory of your choice.
 
 2. Navigate to the root directory (busara_recuit) containing the manage.py file in a command line.
+ 
+3. Now, run the migrate commad in a shell to create model tables in the database.
+   $ python manage.py migrate  
+   
+   
+   
+### Running tests
 
-3. Run the following migration commands to prepare the database
-   python manage.py makemigrations employers
-   python manage.py makemigrations employees
-   python manage.py makemigrations jobs
-   python manage.py makemigrations candidates
-   python manage.py makemigrations interviews
+In the terminal navigate to the root directory, the run tests:  
+  $ python manage.py test 

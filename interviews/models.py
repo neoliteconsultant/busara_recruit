@@ -1,8 +1,17 @@
 from django.db import models
 from django.db import models
-from jobs.models  import Job
+from candidates.models  import Candidate
 
 # Create your models here.
 class Interview(models.Model):
-	job_id = models.ForeignKey(Job, on_delete=models.CASCADE)
-	interview_date = models.DateTimeField(auto_now=True)
+	candidate = models.ForeignKey(Candidate, null=True, on_delete=models.CASCADE)
+	interview_date = models.DateTimeField()
+	
+	
+	def schedule_interview(self, candidate):
+		candidate.is_shortlisted = True
+		candidate.save()
+		
+		interview = Interview(candidate =self.candidate,interview_date=self.interview_date)	
+		interview.save()
+	 

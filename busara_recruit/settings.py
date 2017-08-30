@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+	'home',
 	'employers',
 	'employees',
 	'candidates',
 	'jobs',
+	'mailer',
 	'interviews'
 ]
 
@@ -86,6 +88,18 @@ DATABASES = {
     }
 }
 
+#Email API Configuration
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'busararecruit@gmail.com'
+EMAIL_HOST_PASSWORD = '2@=VL45qBw4nvu'
+#EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+#EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+# Settings for file backend that writes emails to a file, for development purposed
+# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+# EMAIL_FILE_PATH = 'D:/busara_recruit/email-messages' 
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
