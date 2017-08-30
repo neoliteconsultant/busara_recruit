@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Busara recruit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+
+	{% load static %}
+    <link rel="icon" type="image/ico" href="{% static 'employers/images/favicon.ico' %}" />
+    <!-- Bootstrap -->
+    <link href="{% static 'employers/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+   
+    <link rel="stylesheet" href="{% static 'employers/css/bootstrap-checkbox.css' %}">
+
+    <link href="{% static 'employers/css/minoral.css' %}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="brownish-scheme">
+
+    <!-- Preloader -->
+    <div class="mask"><div id="loader"></div></div>
+    <!--/Preloader -->
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+
+      
+
+
+      <!-- Make page fluid -->
+      <div class="row">         
+        
+
+
+
+
+        
+        <!-- Page content -->
+        <div id="content" class="col-md-12 full-page login">
+
+
+          <div class="welcome">
+            <img src="images/logo.png" alt class="logo">
+            <h1><strong>Try Busara recruit</strong></h1>
+           
+          <form action="{% url 'employers:register' %}" method="post">
+			 {% csrf_token %} <!-- Protect Against Cross Site Request Forgeries (CSRF)-->
+          <div class="form-group has-feedback">
+            <input type="text" name="first_name" maxlength="30" class="form-control"  placeholder="First Name (required)">
+          </div>
+		  
+		  <div class="form-group has-feedback">
+            <input type="text" name="last_name" maxlength="30" class="form-control" placeholder="Last Name (required)">
+          </div>
+		  
+		  <div class="form-group has-feedback">
+            <input type="text" name="username" maxlength="30" class="form-control" placeholder="Username (required)">
+          </div>
+		  
+          <div class="form-group has-feedback">
+            <input type="email" name="email" maxlength="35" class="form-control" placeholder="Email (required)">
+          </div>
+		  
+		  <div class="form-group has-feedback">
+            <input type="text" name="phone_number" maxlength="12" class="form-control" placeholder="Phone number">
+          </div>
+		  
+		  <div class="form-group has-feedback">
+            <input type="text" name="company_name" maxlength="30" class="form-control" placeholder="Company name (required)">
+          </div>
+		  
+		  <div class="form-group has-feedback">
+            <input type="text" name="company_website" maxlength="50" class="form-control" placeholder="Company website (required)">
+          </div>
+		   
+          <div class="form-group has-feedback">
+            <input type="password" name="password" maxlength="20" class="form-control" placeholder="Password (required)">
+          </div>
+          <div class="form-group has-feedback">
+            <input type="password" name="password_confirmation" maxlength="20"  class="form-control" placeholder="Retype password">
+          </div>
+          <section >
+                <button class="btn btn-greensea">Create an account</button>
+              </section>
+        </form>
+          </div>
+          
+
+          
+          <a href="index.html" class="log-in">Log In<i class="fa fa-arrow-right fa-5x"></i></a>
+
+
+
+        </div>
+        <!-- Page content end -->
+
+
+
+
+
+
+      </div>
+      <!-- Make page fluid-->
+
+
+
+
+    </div>
+    <!-- Wrap all page content end -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'employers/js/bootstrap.min.js' %}"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"></script>
+    <script src="{% static 'employers/js/plugins/jquery.nicescroll.min.js' %}"></script>
+    <script src="{% static 'employers/js/plugins/blockui/jquery.blockUI.js' %}"></script>
+
+
+    <script src="{% static 'employers/js/minoral.min.js' %}"></script>
+
+    <script>
+    $(function(){
+      
+     //$('.welcome').addClass('animated bounceIn');
+
+    })
+      
+    </script>
+  </body>
+</html>
