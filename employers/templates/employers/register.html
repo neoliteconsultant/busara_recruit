@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{% static 'employers/css/bootstrap-checkbox.css' %}">
 
     <link href="{% static 'employers/css/minoral.css' %}" rel="stylesheet">
+	<link href="{% static 'employers/css/style.css' %}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,25 +48,25 @@
 
 
           <div class="welcome">
-            <img src="images/logo.png" alt class="logo">
-            <h1><strong>Try Busara recruit</strong></h1>
-           
-          <form action="{% url 'employers:register' %}" method="post">
+            <img src="{% static 'employers/images/logo.png'%}" alt class="logo">
+            <h1>Register</h1>
+           {% if error_message %}<p class="error">{{ error_message }}</p>{% endif %}
+          <form name="register_form" action="{% url 'employers:register' %}" method="post">
 			 {% csrf_token %} <!-- Protect Against Cross Site Request Forgeries (CSRF)-->
           <div class="form-group has-feedback">
-            <input type="text" name="first_name" maxlength="30" class="form-control"  placeholder="First Name (required)">
+            <input type="text" name="first_name" maxlength="30" class="form-control"  placeholder="First Name (required)" required>
           </div>
 		  
 		  <div class="form-group has-feedback">
-            <input type="text" name="last_name" maxlength="30" class="form-control" placeholder="Last Name (required)">
+            <input type="text" name="last_name" maxlength="30" class="form-control" placeholder="Last Name (required)" required>
           </div>
 		  
 		  <div class="form-group has-feedback">
-            <input type="text" name="username" maxlength="30" class="form-control" placeholder="Username (required)">
+            <input type="text" name="username" maxlength="30" class="form-control" placeholder="Username (required)" required>
           </div>
 		  
           <div class="form-group has-feedback">
-            <input type="email" name="email" maxlength="35" class="form-control" placeholder="Email (required)">
+            <input type="email" name="email" maxlength="35" class="form-control" placeholder="Email (required)" required>
           </div>
 		  
 		  <div class="form-group has-feedback">
@@ -73,21 +74,21 @@
           </div>
 		  
 		  <div class="form-group has-feedback">
-            <input type="text" name="company_name" maxlength="30" class="form-control" placeholder="Company name (required)">
+            <input type="text" name="company_name" maxlength="30" class="form-control" placeholder="Company name (required)" required>
           </div>
 		  
 		  <div class="form-group has-feedback">
-            <input type="text" name="company_website" maxlength="50" class="form-control" placeholder="Company website (required)">
+            <input type="url" name="company_website" maxlength="50" class="form-control" placeholder="Company website (required)" required>
           </div>
 		   
           <div class="form-group has-feedback">
-            <input type="password" name="password" maxlength="20" class="form-control" placeholder="Password (required)">
+            <input type="password" name="password" maxlength="20" class="form-control" placeholder="Password (required)" required>
           </div>
           <div class="form-group has-feedback">
-            <input type="password" name="password_confirmation" maxlength="20"  class="form-control" placeholder="Retype password">
+            <input type="password" name="password_confirmation" maxlength="20"  class="form-control" placeholder="Retype password" required>
           </div>
           <section >
-                <button class="btn btn-greensea">Create an account</button>
+                <button class="btn btn-greensea" onsubmit="validateInput('register_form')">Create an account</button>
               </section>
         </form>
           </div>
@@ -125,6 +126,7 @@
 
 
     <script src="{% static 'employers/js/minoral.min.js' %}"></script>
+	<script src="{% static 'employers/js/validateInput.js' %}"></script>
 
     <script>
     $(function(){

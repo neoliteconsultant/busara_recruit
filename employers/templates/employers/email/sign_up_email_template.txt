@@ -2,7 +2,12 @@ Hi {{ username }}
 				   
 Welcome to Busara recruit job application platform
 Busara recruit allows you to manage your job applications and hiring process seamlessly.
-Find out more on http://www.busararecruit.co.ke/zeep/
+Please confirm your email address as the final step in this process
+
+
+Thanks, 
+Busara recruit Team
+
 				
 				  
                

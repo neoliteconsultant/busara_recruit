@@ -38,12 +38,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+		    <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Jobs</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#services">Services</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Features</a>
-            </li>
+            
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#">About</a>
             </li>
@@ -66,7 +67,7 @@
           <div class="intro-heading">All-in-one 
 recruiting software for 
 ambitious companies</div>
-          <a class="btn btn-xl js-scroll-trigger" href="#services">Try it for free</a>
+          <a class="btn btn-xl js-scroll-trigger" href="{% url 'employers:register'%}">Try it for free</a>
         </div>
       </div>
     </header>

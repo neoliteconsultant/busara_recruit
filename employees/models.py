@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+
 
 
 # Employee/Job Applicant.
@@ -20,10 +19,5 @@ class Employee(models.Model):
 		return self.first_name+' '+self.last_name
 	
 
-	@receiver(post_save, sender=User)
-	# function will be called after a user object is saved.
-	def create_employee(sender, instance, created, **kwargs):
-		if created:
-			Employee.objects.create(user=instance)
 			
 	 

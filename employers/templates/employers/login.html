@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{% static 'employers/css/bootstrap-checkbox.css' %}">
 
     <link href="{% static 'employers/css/minoral.css' %}" rel="stylesheet">
+	<link href="{% static 'employers/css/style.css' %}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,18 +48,22 @@
 
 
           <div class="welcome" >
-            <img src="images/logo.png" alt class="logo">
+            <img src="{% static 'employers/images/logo.png'%}" alt class="logo">
             <h1><strong>Login</strong></h1>
-            <h5>Busara recruit</h5>
+            {% if error_message %}<p class="error">{{ error_message }}</p>{% endif %}
 
-            <form id="form-signin" class="form-signin">
+            <form id="form-signin" class="form-signin" 
+			action="{% url 'employers:login' %}" method="post">
+			{% csrf_token %} <!-- Protect Against Cross Site Request Forgeries (CSRF)-->
               <section>
                 <div class="input-group">
-                  <input type="text" class="form-control" name="username" placeholder="Username">
+                  <input type="text" class="form-control" name="username" maxlength="30"
+				  placeholder="Username" required>
                   <div class="input-group-addon"><i class="fa fa-user"></i></div>
                 </div>
                 <div class="input-group">
-                  <input type="password" class="form-control" name="password" placeholder="Password">
+                  <input  type="password" class="form-control" name="password" maxlength="20"
+				  placeholder="Password" required>
                   <div class="input-group-addon"><i class="fa fa-key"></i></div>
                 </div>
               </section>
