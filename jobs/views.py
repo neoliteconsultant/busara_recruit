@@ -32,13 +32,13 @@ def create_job(request):
 
 	# if a GET (or any other method) we'll create a blank form
 	else:
-		form = JobForm()
+		job_form = JobForm()
 		
 	user = request.user
 			
 	employer_name = user.employer.company_name
 		
-	return render(request, 'jobs/create_jobs.html', {'form': form,'company_name':employer_name})
+	return render(request, 'jobs/create_jobs.html', {'form': job_form,'company_name':employer_name})
 	
 	
 def my_jobs(request):

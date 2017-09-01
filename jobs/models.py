@@ -23,9 +23,9 @@ class Job(models.Model):
 	('Part time', 'Part time'),
 	)	
 	employer = models.ForeignKey(Employer, on_delete=models.CASCADE)
-	title = models.CharField(blank=False, max_length=30,default='')
-	description = models.CharField(max_length=200,blank=False,default='')
-	requirements = models.CharField(max_length=1000,default='')
+	title = models.CharField(blank=False, max_length=80,default='')
+	description = models.CharField(max_length=300,blank=False,default='')
+	requirements = models.CharField(max_length=1500,default='')
 	benefits = models.CharField(max_length=200,null=True,blank=True)
 	industry =models.CharField(max_length=30, choices=INDUSTRIES,default=INDUSTRIES[0][0])
 	availability =models.CharField(max_length=30, choices=AVAILABILITY, default=AVAILABILITY[0][0])

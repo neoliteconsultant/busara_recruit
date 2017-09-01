@@ -24,8 +24,8 @@ class EmployerTestCase(TestCase):
 		
 		response = self.client.post(reverse('employers:register', kwargs={'first_name':first_name,'lastname':last_name,'email':email,'username':username,'password':password,'company_name':company_name,'company_website':company_website,'phone_number':phone_number}))
 		
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, message)
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, message)
 		
 		
 	#Test for sucessful sign in
@@ -38,7 +38,7 @@ class EmployerTestCase(TestCase):
 		
 		
 		response = self.client.post(reverse('employers:login', kwargs={'username':username,'password':password}))
-        self.assertEqual(response.status_code, 200)
+		self.assertEqual(response.status_code, 200)
 		self.assertRedirects(response, reverse('employers:dashboard'))
         
 		

@@ -136,8 +136,8 @@
 									</div><!-- ad-meta -->									
 								</div><!-- ad-info -->
 								<div class="button">
-								<!--{% url 'applyjob' job_item.id %} -->
-									<a href="" class="btn btn-primary">Apply Now</a>
+							
+									<a href="{% url 'home:apply_job' job_item.id %}" class="btn btn-primary">Apply Now</a>
 								</div>
 							</div><!-- item-info -->
 						</div><!-- ad-item -->	

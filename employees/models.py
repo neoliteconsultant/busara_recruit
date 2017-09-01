@@ -12,7 +12,7 @@ class Employee(models.Model):
 	email = models.EmailField(blank=False, max_length=35,default="")
 	phone_number = models.CharField(blank=False, max_length=12)
 	address = models.CharField(blank=True, max_length=60)
-	cover_letter = models.CharField(max_length=1000,default='')
+	cover_letter = models.CharField(max_length=1500,default='')
 	resume = models.FileField(upload_to='resume/%Y%m%d/',default='')
 	application_date = models.DateTimeField(auto_now=True)
 	is_shortlisted = models.BooleanField(default=False)

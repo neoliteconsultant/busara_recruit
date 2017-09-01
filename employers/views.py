@@ -24,30 +24,29 @@ def dashboard(request):
 	else:
 		return render(request,'employers/login.html')
 	
-def register(request):		
-	if request.method == 'POST':
-		#register_form = RegisterForm(request.POST,request.FILES)
-		register_form = RegisterForm(request.POST)
-		# check whether it's valid:
-		if register_form.is_valid():  
-			first_name = register_form.cleaned_data['first_name']
-			last_name = register_form.cleaned_data['last_name']
-			username = register_form.cleaned_data['username']
-			email = register_form.cleaned_data['email']
-			phone_number = register_form.cleaned_data['phone_number']
-			company_name = register_form.cleaned_data['company_name']
-			company_website = register_form.cleaned_data['company_website']
-			password = register_form.cleaned_data['password']
-			password_confirmation = register_form.cleaned_data['password_confirmation']
-			
+def register(request):
+	if request.method == 'GET':
+		return render(request,'employers/register.html')
 		
-		    
+	else:
+		first_name = request.POST['first_name']
+		last_name = request.POST['last_name']
+		username = request.POST['username']
+		email = request.POST['email']
+		phone_number = request.POST['phone_number']
+		company_name = request.POST['company_name']
+		company_website = request.POST['company_website']
+		password = request.POST['password']
+		password_confirmation = request.POST['password_confirmation']
+		
+		
+		
+		if password == password_confirmation:
 			user = User.objects.create_user(username, email,password)		
 			user.first_name=first_name
 			user.last_name=last_name
 			user.save()
 			
-			#company_logo=request.FILES['company_logo']
 			employer = Employer(user=user,company_name=company_name,company_website=company_website,phone_number=phone_number)
 			employer.save()
 		
@@ -57,12 +56,9 @@ def register(request):
 			# with POST data. This prevents data from being posted twice if a
 			# user hits the Back button.
 			return HttpResponseRedirect(reverse('employers:email_confirmation', args=(email,)))
-		
 			
-	else:
-		register_form = RegisterForm(request.POST)
-		
-	return render(request,'employers/register.html',{'form': register_form})
+		else:
+			return render(request,'employers/register.html',{'error_message': "Passwords do not match."})
 		
 		
 def register2(request):
@@ -95,4 +91,4 @@ def logout_employer(request):
 		return render(request,'employers/login.html')
 	
 def email_confirmation(request, email):
-    return render(request,'employers/register_successful',{'email': email})
+    return render(request,'employers/register_successful.html',{'email': email})
