@@ -1,7 +1,7 @@
 Author: Tony Afula Maganga
 Project: Busara Recruitment Portal
 Email: tonyafula@gmail.com
-Role: Senior Software Developer
+Role: Senior Backend Developer
 Date: Aug 28, 2017
 
 
@@ -15,19 +15,34 @@ the following tools
 
 - Django v1.11.4
 - Python v3.4+
-- MySQL Server 5.5+
+
 
 ### Installation
 1. Copy the project,busara_recruit, to any directory of your choice.
 
 2. Navigate to the root directory (busara_recuit) containing the manage.py file in a command line.
  
-3. Now, run the migrate commad in a shell to create model tables in the database.
+3. Run the migrate command in a shell to create the database tables automatically.
    $ python manage.py migrate  
    
+4. Execute the runserver command in a shell to start the development server.This will enable you to access
+   the web aplication in a browser.
+   $ python manage.py runserver
+
+
    
+5. Copy the following url in a browser
+   
+   http://localhost:8000/
+   
+   NB: The development server runs on port 8000 by default   
    
 ### Running tests
 
-In the terminal navigate to the root directory, the run tests:  
+In the terminal navigate to the root directory of the project containing the manage.py file, 
+then run the following command in a shell:  
   $ python manage.py test 
+
+Optionaly you can specify an app to test
+e.g 
+  $ python manage.py test jobs

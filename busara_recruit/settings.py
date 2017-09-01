@@ -21,11 +21,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'c^nzr4^4v420b9qln4&y5zqltf4cb8c2$3k+cyvde5814cv-nc'
+# Production Environment
+# SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['neoliteconsultant.pythonanywhere.com','localhost']
 
 
 # Application definition
@@ -40,9 +42,7 @@ INSTALLED_APPS = [
 	'home',
 	'employers',
 	'employees',
-	'candidates',
 	'jobs',
-	'mailer',
 	'interviews'
 ]
 
@@ -70,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+				'django.template.context_processors.media'
             ],
         },
     },
@@ -97,7 +98,7 @@ EMAIL_HOST_PASSWORD = '2@=VL45qBw4nvu'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-# Settings for file backend that writes emails to a file, for development purposed
+# Settings for file backend that writes emails to a file, for development purposes
 # EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 # EMAIL_FILE_PATH = 'D:/busara_recruit/email-messages' 
 
@@ -138,3 +139,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+# Production Environment
+STATIC_ROOT ='/home/neoliteconsultant/busara_recruit/static' 
+
+MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = 'D:/BUSARA'

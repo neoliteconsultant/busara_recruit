@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Jobs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    {% load static %}
+    <link rel="icon" type="image/ico" href="{% static 'employers/images/favicon.ico' %}" />
+    <!-- Bootstrap -->
+    <link href="{% static 'employers/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'employers/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'employers/css/rickshaw.min.css' %}">
+    <link rel="stylesheet" href="{% static 'employers/css/bootstrap-checkbox.css' %}">
+    <link rel="stylesheet" href="{% static 'employers/css/chosen-bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'employers/js/plugins/tabdrop/css/tabdrop.css' %}">
+    <link href="{% static 'employers/css/minoral.css' %}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="brownish-scheme">
+
+    <!-- Preloader -->
+    <div class="mask"><div id="loader"></div></div>
+    <!--/Preloader -->
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+
+      
+
+
+      <!-- Make page fluid -->
+      <div class="row">
+        
+
+
+
+
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+          
+
+
+          <!-- Branding -->
+          <div class="navbar-header col-md-2">
+            <a class="navbar-brand" href="index.html">
+              <strong>Busara</strong> <span class="divider vertical"></span> Recruit
+            </a>
+            <div class="sidebar-collapse">
+              <a href="index.html#">
+                <i class="fa fa-bars"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Branding end -->
+
+
+          <!-- .nav-collapse -->
+          <div class="navbar-collapse">
+            
+
+            
+
+            <!-- Content collapsing at 768px to sidebar -->
+            <div class="collapsing-content">
+
+
+
+
+
+
+
+
+
+              <!-- User Controls -->
+              <div class="user-controls">
+                <ul>
+
+                 
+                  <li class="dropdown messages">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="index.html#">
+                      <span class="badge badge-red" id="user-new-messages">3</span>{{company_name}}</strong> <i class="fa fa-angle-down"></i>
+                    </a>
+                    <div class="profile-photo">
+                      <img src="images/profile-photo.jpg" alt />
+                    </div>
+                    <ul class="dropdown-menu wide arrow red nopadding">
+                      <li><h1>You have <strong>3</strong> new messages</h1></li>
+
+                      <li>
+                        <a class="cyan" href="index.html#">
+                          <div class="profile-photo">
+                            <img src="images/ici-avatar.jpg" alt />
+                          </div>
+                          <div class="message-info">
+                            <span class="sender">Ing. Imrich Kamarel</span>
+                            <span class="time">12 mins</span>
+                            <div class="message-content">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</div>
+                          </div>
+                        </a>
+                      </li>
+
+                      
+
+                      
+
+                      <li>
+                        <a class="orange" href="index.html#">
+                          <div class="profile-photo">
+                            <img src="images/george-avatar.jpg" alt />
+                          </div>
+                          <div class="message-info">
+                            <span class="sender">George McCain</span>
+                            <span class="time">6 hours</span>
+                            <div class="message-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
+                          </div>
+                        </a>
+                      </li>
+
+
+                      <li><a href="index.html#">Check all messages <i class="fa fa-angle-right"></i></a></li>
+                    </ul>
+                  </li>
+				  
+				   <li>
+                     <a href="{% url 'employers:logout' %}"><i class="fa fa-power-off"></i> Logout</a>
+                  </li>
+
+                  
+
+                </ul>
+              </div>
+              <!-- User Controls end -->
+
+            
+
+
+
+            </div>
+            <!-- /Content collapsing at 768px to sidebar -->
+
+
+
+            <!-- Sidebar -->
+            <ul class="nav navbar-nav side-nav" id="navigation">
+              <li class="collapsed-content">
+                <!-- Collapsed content pasting here at 768px -->
+              </li>
+              <li class="user-status status-online" id="user-status">
+                <div class="profile-photo">
+                  <img src="{% static 'employers/images/profile-photo.jpg' %}" alt />
+                </div>
+                <div class="user">
+                  {{company_name}}
+                  
+                </div>
+              </li>
+			  
+			  <li class="dropdown">
+                <a href="{% url 'employers:dashboard'%}" class="dropdown-toggle" title="Dashboard">
+                  <i class="fa fa-dashboard">
+                    <span class="overlay-label red"></span>
+                  </i> 
+                  Dashboard 
+                </a>
+               
+              </li>
+			   <li class="dropdown open">
+                <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" title="Forms">
+                  <i class="fa fa-list">
+                    <span class="overlay-label green"></span>
+                  </i>
+                  Jobs <b class="fa fa-angle-left dropdown-arrow"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li >
+                    <a href="{% url 'jobs:create'%}" title="Common Elements">
+                      <i class="fa fa-thumb-tack"><span class="overlay-label green80"></span></i>
+                      Create jobs
+                    </a>
+                  </li>
+                  <li class="active">
+                    <a href="{% url 'jobs:view'%}" title="Validation">
+                      <i class="fa fa-check-square"><span class="overlay-label green60"></span></i>
+                      View Jobs
+                    </a>
+                  </li>
+                  <li>
+                    <a href="form-wizard.html"  title="Form Wizard">
+                      <i class="fa fa-shield"><span class="overlay-label green40"></span></i>
+                      Update Jobs
+                    </a>
+                  </li>
+                </ul>
+              </li>
+			  
+              <li class="dropdown">
+                <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" title="Dashboard">
+                  <i class="fa fa-dashboard">
+                    <span class="overlay-label red"></span>
+                  </i> 
+                  Interviews <b class="fa fa-angle-left dropdown-arrow"></b>
+                  
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="index.html" title="Overview">
+                      <i class="fa fa-eye"><span class="overlay-label red80"></span></i>
+                      Schedule Interviews
+                    </a>
+                  </li>
+                  <li>
+                    <a href="mail.html" title="Inbox">
+                      <i class="fa fa-envelope"><span class="overlay-label red60"></span></i>
+                      View Interviews
+                    </a>
+                  </li>
+                </ul>
+              </li>
+             
+			  
+			  
+              <li class="dropdown">
+                <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" title="Interface">
+                  <i class="fa fa-pencil">
+                    <span class="overlay-label amethyst"></span>
+                  </i>
+                  Candidates <b class="fa fa-angle-left dropdown-arrow"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="{% url 'candidates:view'%}" title="UI Elements">
+                      <i class="fa fa-puzzle-piece"><span class="overlay-label amethyst80"></span></i>
+                      View Candidates
+                    </a>
+                  </li>
+                  <li>
+                    <a href="typography.html" title="Typography">
+                      <i class="fa fa-font"><span class="overlay-label amethyst60"></span></i>
+                      Typography
+                    </a>
+                  </li>
+                  <li>
+                    <a href="nestable.html" title="Nestable Lists">
+                      <i class="fa fa-arrows"><span class="overlay-label amethyst40"></span></i>
+                      Nestable Lists
+                    </a>
+                  </li>
+                  <li>
+                    <a href="tiles.html" title="Tiles">
+                      <i class="fa fa-th"><span class="overlay-label amethyst40"></span></i>
+                      Tiles
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              
+			  <li>
+                <a href="charts.html" title="Charts & Graphs">
+                  <i class="fa fa-bar-chart-o">
+                    <span class="overlay-label dutch"></span>  
+                  </i>
+                  Inbox
+                </a>
+              </li>
+              
+              
+              
+              
+              
+            </ul>
+            <!-- Sidebar end -->
+
+
+
+
+
+          </div>
+          <!--/.nav-collapse -->
+
+
+
+
+
+        </div>
+        <!-- Fixed navbar end -->
+        
+
+
+
+
+        
+        <!-- Page content -->
+        <div id="content" class="col-md-12">
+          
+
+
+
+
+
+
+
+
+          <!-- breadcrumbs -->
+          <div class="breadcrumbs">
+            <ol class="breadcrumb">
+              <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+              <li><a href="index.html">Dashboard</a></li>
+              <li class="active">Overview</li>
+            </ol>
+          </div>
+          <!-- /breadcrumbs -->
+
+
+
+
+
+
+          
+          
+
+
+
+
+          <!-- content main container -->
+          <div class="main">
+            
+
+<section class="tile">
+  <div class="tile-widget nopadding">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs tabdrop align-right">
+      <li class="tab-title pull-left">
+      </li>
+    </ul>
+    <!-- / Nav tabs -->
+  </div>
+  <div class="tile-body tab-content">
+
+    <div class="input-group search-bar">
+      <input type="text" class="form-control" name="search" placeholder="Search...jobs" >
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button"><i class="fa fa-search"></i> Search</button>
+      </span>
+    </div>
+    
+    <!-- Tab panes -->                 
+    <div id="fulltext-tab" class="tab-pane fade in active">
+      
+      <ul class="search-results fulltext">
+
+		{% for job_item in my_jobs %}
+        <li class="search-result">
+          <div class="cover">
+            
+            <h4><a href="#">{{ job_item.title }}</a></h4>
+
+            <p>{{ job_item.description }}</p>
+
+            <a href="#">View More</a>
+
+          </div>
+        </li>
+		{% endfor %}
+      
+        
+        
+      </ul>
+
+      <div class="pagination aligned-right">
+        <div class="btn-group btn-group-sm">
+          <button type="button" class="btn btn-default"><i class="fa fa-angle-left"></i></button>
+          <button type="button" class="btn btn-default"><i class="fa fa-angle-right"></i></button>
+        </div>
+      </div>
+
+    </div>
+
+    
+	
+	
+	
+
+  
+    <!-- / Tab panes -->
+
+  </div>
+
+</section>
+
+
+
+
+
+            
+
+
+
+          </div>
+          <!-- /content container -->
+
+
+
+
+
+
+        </div>
+        <!-- Page content end -->
+
+
+
+
+
+
+      </div>
+      <!-- Make page fluid-->
+
+
+
+
+    </div>
+    <!-- Wrap all page content end -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'employers/js/bootstrap.min.js' %}"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&amp;skin=sons-of-obsidian"></script>
+
+    <script src="{% static 'employers/js/plugins/jquery.nicescroll.min.js' %}"></script>
+
+    <script src="{% static 'employers/js/plugins/blockui/jquery.blockUI.js' %}"></script>
+
+   
+    
+    <script src="{% static 'employers/js/plugins/chosen/chosen.jquery.min.js' %}"></script>
+
+    <script src="{% static 'employers/js/plugins/tabdrop/bootstrap-tabdrop.min.js' %}"></script>
+
+   
+    <script src="{% static 'employers/js/minoral.js' %}"></script>
+
+    
+   
+      
+    </script>
+  </body>
+</html>

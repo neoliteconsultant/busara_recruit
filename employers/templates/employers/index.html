@@ -85,11 +85,9 @@
                  
                   <li class="dropdown messages">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="index.html#">
-                      <span class="badge badge-red" id="user-new-messages">3</span> John Douey</strong> <i class="fa fa-angle-down"></i>
+                      <span class="badge badge-red" id="user-new-messages">3</span>{{company_name}} </strong> <i class="fa fa-angle-down"></i>
                     </a>
-                    <div class="profile-photo">
-                      <img src="images/profile-photo.jpg" alt />
-                    </div>
+                   
                     <ul class="dropdown-menu wide arrow red nopadding">
                       <li><h1>You have <strong>3</strong> new messages</h1></li>
 
@@ -128,48 +126,12 @@
                     </ul>
                   </li>
 
-                  <li class="dropdown settings">
-                    <a class="dropdown-toggle options" data-toggle="dropdown" href="index.html#">
-                      <i class="fa fa-cog"></i>
-                    </a>
-                    
-                    <ul class="dropdown-menu arrow">
-
-                      <li>
-                        <h3>Color schemes:</h3>
-                        <ul id="color-schemes">
-                          <li><a href="index.html#" class="brownish-scheme" title="Brownish"></a></li>
-                          <li><a href="index.html#" class="darkgrey-scheme" title="Dark Grey"></a></li>
-                          <li><a href="index.html#" class="lightgrey-scheme" title="Light Grey"></a></li>
-                          <li><a href="index.html#" class="cyan-scheme" title="Cyan"></a></li>
-                          <li><a href="index.html#" class="red-scheme" title="Red"></a></li>
-                          <li><a href="index.html#" class="orange-scheme" title="Orange"></a></li>
-                          <li><a href="index.html#" class="green-scheme" title="Green"></a></li>
-                          <li><a href="index.html#" class="amethyst-scheme" title="Amethyst"></a></li>
-                        </ul>
-                      </li>
-
-                      <li class="divider"></li>
-
-                      <li>
-                        <a href="index.html#"><i class="fa fa-user"></i> Profile</a>
-                      </li>
-
-                      <li>
-                        <a href="index.html#"><i class="fa fa-calendar"></i> Calendar</a>
-                      </li>
-
-                      <li>
-                        <a href="index.html#"><i class="fa fa-envelope"></i> Inbox <span class="badge badge-red" id="user-inbox">3</span></a>
-                      </li>
-
-                      <li class="divider"></li>
-
-                      <li>
-                        <a href="index.html#"><i class="fa fa-power-off"></i> Logout</a>
-                      </li>
-                    </ul>
+				  <li>
+                     <a href="{% url 'employers:logout' %}"><i class="fa fa-power-off"></i> Logout</a>
                   </li>
+				  
+				  
+                  
 
                 </ul>
               </div>
@@ -193,14 +155,25 @@
                 <div class="profile-photo">
                   <img src="{% static 'employers/images/profile-photo.jpg' %}" alt />
                 </div>
-                <div class="user">
-                  John Douey
+               
+				<div class="user">
+                  {{company_name}}
                   
                   
                 </div>
               </li>
 			  
-			   <li class="dropdown open">
+			  <li class="dropdown active">
+                <a href="#" class="dropdown-toggle" title="Dashboard">
+                  <i class="fa fa-dashboard">
+                    <span class="overlay-label red"></span>
+                  </i> 
+                  Dashboard 
+                </a>
+               
+              </li>
+			  
+			   <li class="dropdown">
                 <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" title="Forms">
                   <i class="fa fa-list">
                     <span class="overlay-label green"></span>
@@ -208,20 +181,20 @@
                   Jobs <b class="fa fa-angle-left dropdown-arrow"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li class="active">
-                    <a href="form-elements.html" title="Common Elements">
+                  <li>
+                    <a href="{% url 'jobs:create'%}" >
                       <i class="fa fa-thumb-tack"><span class="overlay-label green80"></span></i>
                       Create jobs
                     </a>
                   </li>
                   <li>
-                    <a href="validation-elements.html" title="Validation">
+                    <a href="{% url 'jobs:view'%}">
                       <i class="fa fa-check-square"><span class="overlay-label green60"></span></i>
                       View Jobs
                     </a>
                   </li>
                   <li>
-                    <a href="form-wizard.html"  title="Form Wizard">
+                    <a href="form-wizard.html">
                       <i class="fa fa-shield"><span class="overlay-label green40"></span></i>
                       Update Jobs
                     </a>
@@ -370,7 +343,7 @@
                 <div class="card card-red hover">
                   <div class="front">        
                     <h1>Created jobs</h1>
-                    <p id="users-count">100</p>
+                    <p id="users-count">0</p>
                     <span class="fa-stack fa-2x pull-right">
                       <i class="fa fa-circle fa-stack-2x"></i>
                       <i class="fa fa-user fa-stack-1x"></i>
@@ -467,48 +440,13 @@
 <section class="tile">
 
   <div class="tile-header">
-    <h1><strong>Vertical</strong> Form</h1>
-    <div class="controls">
-      <a href="#" class="refresh"><i class="fa fa-refresh"></i></a>
-      <a href="#" class="remove"><i class="fa fa-times"></i></a>
-    </div>
+    <h1></h1>
   </div>
   
   <div class="tile-body">
     
-    <div class="row">
-
-      <div class="form-group col-sm-6">
-        <label for="exampleInputEmail">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail" placeholder="Enter email">
-      </div>
-      <div class="form-group col-sm-3">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-      </div>
-      <div class="form-group col-sm-3">
-        <label for="exampleInputPassword2">Password repeat</label>
-        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password repeat">
-      </div>
-
-    </div>
-
-    <div class="row">
-
-      <div class="form-group col-sm-4">
-        <label for="exampleInputCity">City</label>
-        <input type="text" class="form-control" id="exampleInputCity" placeholder="City">
-      </div>
-      <div class="form-group col-sm-4">
-        <label for="exampleInputAddress">Address</label>
-        <input type="text" class="form-control" id="exampleInputAddress" placeholder="Address">
-      </div>
-      <div class="form-group col-sm-4">
-        <label for="exampleInputCountry">Country</label>
-        <input type="text" class="form-control" id="exampleInputCountry" placeholder="Country">
-      </div>
-
-    </div>
+   
+   
 
   </div>
   
