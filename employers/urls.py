@@ -9,6 +9,7 @@ urlpatterns = [
 	url(r'^login/$', views.login_employer, name="login"),
 	url(r'^logout/$', views.logout_employer, name="logout"),
     url(r'^register/$', views.register, name="register"),
-	url(r'^email_confirmation/(?P<email>\w+|[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4})$', views.email_confirmation, name="email_confirmation")
+	url(r'^email_confirmation/(?P<email>\w+|[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4})$', views.email_confirmation, name="email_confirmation"),
+	
 
 ]

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>View Candidates</title>
+    <title>View Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8" />
     {% load static %}
@@ -124,7 +124,7 @@
                       </li>
 
 
-                      <li><a href="#">Check all messages <i class="fa fa-angle-right"></i></a></li>
+                      <li><a href="index.html#">Check all messages <i class="fa fa-angle-right"></i></a></li>
                     </ul>
                   </li>
 				  
@@ -185,7 +185,7 @@
                       Create jobs
                     </a>
                   </li>
-                  <li >
+                  <li class="active">
                     <a href="{% url 'jobs:view'%}" title="Validation">
                       <i class="fa fa-check-square"><span class="overlay-label green60"></span></i>
                       View Jobs
@@ -227,21 +227,37 @@
 			  
 			  
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Interface">
+                <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" title="Interface">
                   <i class="fa fa-pencil">
                     <span class="overlay-label amethyst"></span>
                   </i>
                   Candidates <b class="fa fa-angle-left dropdown-arrow"></b>
                 </a>
-                <ul class="dropdown-menu open">
-                  <li class="active">
-                    <a href="#" title="UI Elements">
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="{% url 'candidates:view'%}" title="UI Elements">
                       <i class="fa fa-puzzle-piece"><span class="overlay-label amethyst80"></span></i>
                       View Candidates
                     </a>
                   </li>
-                 
-                  
+                  <li>
+                    <a href="#" title="Typography">
+                      <i class="fa fa-font"><span class="overlay-label amethyst60"></span></i>
+                      Typography
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="Nestable Lists">
+                      <i class="fa fa-arrows"><span class="overlay-label amethyst40"></span></i>
+                      Nestable Lists
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="Tiles">
+                      <i class="fa fa-th"><span class="overlay-label amethyst40"></span></i>
+                      Tiles
+                    </a>
+                  </li>
                 </ul>
               </li>
               
@@ -282,35 +298,7 @@
         
         <!-- Page content -->
         <div id="content" class="col-md-12">
-          
-
-
-
-
-
-
-
-
-          <!-- breadcrumbs -->
-          <div class="breadcrumbs">
-            <ol class="breadcrumb">
-              <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-              <li><a href="index.html">Dashboard</a></li>
-              <li class="active">Overview</li>
-            </ol>
-          </div>
-          <!-- /breadcrumbs -->
-
-
-
-
-
-
-          
-          
-
-
-
+         
 
           <!-- content main container -->
           <div class="main">
@@ -327,33 +315,70 @@
   </div>
   <div class="tile-body tab-content">
 
-    <div class="input-group search-bar">
-      <input type="text" class="form-control" name="search" placeholder="Search...candidates" >
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button"><i class="fa fa-search"></i> Search</button>
-      </span>
-    </div>
+   
     
     <!-- Tab panes -->                 
     <div id="fulltext-tab" class="tab-pane fade in active">
       
       <ul class="search-results fulltext">
 
-		{% for candidate in candidate_list %}
         <li class="search-result">
           <div class="cover">
             
-            <h4><a href="#">{{ candidate.first_name }} {{ candidate.last_name }}</a></h4>
+            <h4><a href="#">Profile</a></h4>
+			
+			<p>Name : {{profile.first_name}}</p>
+			<p>Email : {{profile.last_name}} </p>
+			<p>Phone number : {{profile.first_name}}</p>
+			<p>Address : {{profile.address}}</p>
+			
 
-            <p>{{ candidate.job.title }}</p>
-
-            <a href="{% url 'candidates:profile' candidate.id %}">View Profile</a><br><br>
-
-			<button type="button" class="btn btn-greensea margin-bottom-20">Shortlist candidate</button>
           </div>
         </li>
-		{% endfor %}
+		
+		 <li class="search-result">
+          <div class="cover">
+            
+            <h4><a href="#">Cover letter</a></h4>
+
+            <p>{{profile.cover_letter}}</p>
+
+			
+
+          </div>
+        </li>
+		
+		
+		<li class="search-result">
+          <div class="cover">
+            
+            <h4><a href="#">Resume</a></h4>
+
+           <button type="reset" class="btn btn-orange cancel">
+                              <i class="fa fa-download" aria-hidden="true"></i>
+                              <span>Download</span>
+                            </button>
+							
+							<p></p>
+							<a href="{% url 'candidates:download' profile.resume.name %}">Download</a>
+			
+
+          </div>
+        </li>
       
+	    <li class="search-result">
+          <div class="cover">
+            
+           
+
+           <button type="reset" class="btn btn-orange cancel">
+                              <i class="fa fa-download" aria-hidden="true"></i>
+                              <span>Shortlist</span>
+                            </button>
+			
+
+          </div>
+        </li>
         
         
       </ul>
@@ -366,14 +391,6 @@
       </div>
 
     </div>
-
-    
-	
-	
-	
-
-  
-    <!-- / Tab panes -->
 
   </div>
 

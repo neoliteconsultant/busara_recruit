@@ -48,7 +48,7 @@ class EmailThread(threading.Thread):
 		
 		msg = EmailMultiAlternatives(self.subject, text_content, settings.EMAIL_HOST_USER, [self.recipient_email])
 		msg.attach_alternative(html_content, "text/html")
-		msg.send()
+		msg.send(fail_silently=True)
 
 	
 	

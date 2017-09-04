@@ -6,6 +6,8 @@ from django.urls import reverse
 from employers.models  import Employer 
 from django.conf import settings
 
+from django.shortcuts import get_object_or_404
+
 from . forms import LoginForm
 from .forms import RegisterForm, SignUpForm
 
@@ -40,8 +42,9 @@ def register(request):
 		password_confirmation = request.POST['password_confirmation']
 		
 		
-		
-		if password == password_confirmation:
+		if password != password_confirmation:
+			return render(request,'employers/register.html',{'error_message': "Passwords do not match."})
+		else:		
 			user = User.objects.create_user(username, email,password)		
 			user.first_name=first_name
 			user.last_name=last_name
@@ -57,8 +60,6 @@ def register(request):
 			# user hits the Back button.
 			return HttpResponseRedirect(reverse('employers:email_confirmation', args=(email,)))
 			
-		else:
-			return render(request,'employers/register.html',{'error_message': "Passwords do not match."})
 		
 		
 def register2(request):
