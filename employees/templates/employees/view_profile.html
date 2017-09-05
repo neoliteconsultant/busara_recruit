@@ -354,15 +354,13 @@
             
             <h4><a href="#">Resume</a></h4>
 
-           <button type="reset" class="btn btn-orange cancel">
-                              <i class="fa fa-download" aria-hidden="true"></i>
-                              <span>Download</span>
-                            </button>
+          
 							
 							<p></p>
-							<a href="{% url 'candidates:download' profile.resume.name %}">Download</a>
+		<a href="{% url 'candidates:download' profile.resume.name %}" target="_blank">Download</a>
 			
 
+			
           </div>
         </li>
       
@@ -370,11 +368,7 @@
           <div class="cover">
             
            
-
-           <button type="reset" class="btn btn-orange cancel">
-                              <i class="fa fa-download" aria-hidden="true"></i>
-                              <span>Shortlist</span>
-                            </button>
+		 <a href="{% url 'interviews:schedule' profile.id %}">Shortlist</a>
 			
 
           </div>

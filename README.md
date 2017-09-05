@@ -14,7 +14,7 @@ Before running the application, ensure you have installed and configured
 the following tools
 
 - Django v1.11.4
-- Python v3.4+
+- Python v3.4
 
 
 ### Installation
@@ -25,13 +25,15 @@ the following tools
 3. Run the migrate command in a shell to create the database tables automatically.
    $ python manage.py migrate  
    
-4. Execute the runserver command in a shell to start the development server.This will enable you to access
+4. Change the MEDIA_ROOT property in busara_recruit/busara_recruit/settings.py to a location in your file system   
+   
+5. Execute the runserver command in a shell to start the development server.This will enable you to access
    the web aplication in a browser.
    $ python manage.py runserver
 
 
    
-5. Copy the following url in a browser
+6. Copy the following url in a browser
    
    http://localhost:8000/
    
