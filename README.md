@@ -22,7 +22,7 @@ the following tools
 
 2. Navigate to the root directory (busara_recuit) containing the manage.py file in a command line.
  
-3. Run the migrate command in a shell to create the database tables automatically.
+3. Run the migrate command in a shell to create the database tables automatically.(the dollar sign $ represents the shell prompt and should not be typed)
    $ python manage.py migrate  
    
 4. Change the MEDIA_ROOT property in busara_recruit/busara_recruit/settings.py to a location in your file system   

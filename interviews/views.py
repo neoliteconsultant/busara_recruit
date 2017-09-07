@@ -1,6 +1,9 @@
 from django.shortcuts import get_object_or_404,render
 from employees.models import Employee
 from interviews.models import Interview
+from django.urls import reverse
+from datetime import datetime
+from django.http import HttpResponseRedirect,HttpResponse
 
 # Create your views here.
 def schedule_interview(request,employee_id):
@@ -16,9 +19,14 @@ def schedule_interview(request,employee_id):
 		interview_type = request.POST['interview_type']
 		location = request.POST['location']
 		interview_date = request.POST['interview_date']
+		#YYYY-MM-DD HH:MM
+		date_object = datetime.strptime(interview_date, '%m/%d/%Y %I:%M %p')
+		formatted_date = date_object.strftime('%Y-%m-%d %H:%M')
 		
-		interview = Interview(employee=employee, interview_type = interview_type, location = location, interview_date=interview_date)	
+		interview = Interview(employee=employee, interview_type = interview_type, location = location, interview_date=formatted_date)	
 		interview.save()
+		
+		interview.send_interview_email(interview)
 		
 		# redirect to a new URL:
 		return HttpResponseRedirect(reverse('interviews:view'))

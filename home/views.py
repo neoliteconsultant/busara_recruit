@@ -32,8 +32,9 @@ def apply_job(request, job_id):
 			
 			new_employee.save()
 			
-			#TODO:send email to employee and employer
-			
+			#TODO:send email to employee
+			#TODO: notify employer of new application
+			new_employee.send_job_application_email(new_employee)
 				
 			# redirect to a new URL:
 			return render(request,'home/application_successful.html',{'company_name': job.employer.company_name,"job_position":job.title})

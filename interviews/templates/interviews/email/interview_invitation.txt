@@ -1,0 +1,8 @@
+Dear {{ username }},
+				   
+Congratulations. You have been invited by {{company_name}} for {{job_title}} interview
+Find the details below.
+        
+Interview Stage {{interview_type}}
+Location {{location}}
+Time {{interview_date}}

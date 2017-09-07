@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>View Candidates</title>
+    <title>Candidates</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8" />
     {% load static %}
@@ -274,44 +274,8 @@
 
         </div>
         <!-- Fixed navbar end -->
-        
-
-
-
-
-        
         <!-- Page content -->
         <div id="content" class="col-md-12">
-          
-
-
-
-
-
-
-
-
-          <!-- breadcrumbs -->
-          <div class="breadcrumbs">
-            <ol class="breadcrumb">
-              <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-              <li><a href="index.html">Dashboard</a></li>
-              <li class="active">Overview</li>
-            </ol>
-          </div>
-          <!-- /breadcrumbs -->
-
-
-
-
-
-
-          
-          
-
-
-
-
           <!-- content main container -->
           <div class="main">
             
@@ -349,7 +313,10 @@
 
             <a href="{% url 'candidates:profile' candidate.id %}">View Profile</a><br><br>
 
-			<button type="button" class="btn btn-greensea margin-bottom-20">Shortlist candidate</button>
+			 <a style="color:white" role="button" href="{% url 'interviews:schedule' candidate.id %}" class="btn btn-greensea">
+           <i class="fa fa-address-card-o" aria-hidden="true"></i>
+            <span>Shortlist</span>
+        </a>
           </div>
         </li>
 		{% endfor %}

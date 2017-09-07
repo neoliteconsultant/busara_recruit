@@ -1,0 +1,15 @@
+
+{{company_name}}
+Personal Details
+         	
+Your application for the {{job_title}} job was submitted successfully.
+Here's a copy of your application data for safekeeping:
+
+Name {{candidate_name}}
+Email {{candidate_email}}
+Phone {{candidate_phone}}
+Address {{candidate_address}}
+
+Cover letter
+{{cover_letter}}   
+      

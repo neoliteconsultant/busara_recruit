@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>View Profile</title>
+    <title>Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8" />
     {% load static %}
@@ -328,7 +328,7 @@
             <h4><a href="#">Profile</a></h4>
 			
 			<p>Name : {{profile.first_name}}</p>
-			<p>Email : {{profile.last_name}} </p>
+			<p>Email : {{profile.email}} </p>
 			<p>Phone number : {{profile.first_name}}</p>
 			<p>Address : {{profile.address}}</p>
 			
@@ -352,12 +352,15 @@
 		<li class="search-result">
           <div class="cover">
             
-            <h4><a href="#">Resume</a></h4>
+            <h4><a href="#"></a></h4>
 
           
-							
-							<p></p>
-		<a href="{% url 'candidates:download' profile.resume.name %}" target="_blank">Download</a>
+		<a style="display:none" href="{% url 'candidates:download' profile.resume.name %}">Download Resume</a>
+		
+		<a style="color:white" role="button" href="{% url 'candidates:download' profile.resume.name %}" class="btn btn-orange cancel">
+            <i class="fa fa-download" aria-hidden="true"></i>
+            <span>Download Resume</span>
+        </a>
 			
 
 			
@@ -367,8 +370,11 @@
 	    <li class="search-result">
           <div class="cover">
             
-           
-		 <a href="{% url 'interviews:schedule' profile.id %}">Shortlist</a>
+         
+		 <a style="color:white" role="button" href="{% url 'interviews:schedule' profile.id %}" class="btn btn-greensea">
+           <i class="fa fa-address-card-o" aria-hidden="true"></i>
+            <span>Shortlist</span>
+        </a>
 			
 
           </div>
