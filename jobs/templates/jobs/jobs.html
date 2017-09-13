@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+	{% load static %}
+    <title>Jobs | Busara recruit</title>
+
+   
+	
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'home/css/agency.min.css' %}" rel="stylesheet">
+	<link href="{% static 'home/css/main.css' %}" rel="stylesheet">
+	
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav style="background:black"class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Busara recruit</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{% url 'home:home'%}">Home</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{% url 'employers:login'%}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="{% url 'employers:register'%}">Sign up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+   
+
+	
+
+					
+					
+						
+							
+								
+    
+      <div class="container">
+			<div class="section latest-jobs-ads">
+				<div class="section-title tab-manu">
+					<h4>Latest Jobs</h4>
+					
+				</div>
+				
+				{% for job_item in jobs_list %}
+						<div class="job-ad-item">
+							<div class="item-info">
+								<div class="item-image-box">
+									<div class="item-image">
+										<a href="{% url 'jobs:detail' job_item.id %}"><img src="{% static 'home/img/default_company_logo.jpg'%}" alt="Image" class="img-responsive"></a>
+									</div><!-- item-image -->
+								</div>
+
+								<div class="ad-info">
+									<span><a href="{% url 'jobs:detail' job_item.id %}" class="title">{{ job_item.title }}</a> @ <a href="{% url 'jobs:detail' job_item.id %}">{{ job_item.employer.company_name }}</a></span>
+									<div class="ad-meta">
+										<ul>
+											<li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>{{ job_item.location }} </a></li>
+											<li><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i>{{ job_item.availability }} </a></li>
+											<li style="visibility:hidden"><a href="#"><i class="fa fa-money" aria-hidden="true"></i>$25,000 - $35,000</a></li>
+											<li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>{{ job_item.industry }}</a></li>
+										</ul>
+									</div><!-- ad-meta -->									
+								</div><!-- ad-info -->
+								<div class="button">
+							
+									<a href="{% url 'jobs:apply' job_item.id %}" class="btn btn-primary">Apply Now</a>
+								</div>
+							</div><!-- item-info -->
+						</div><!-- ad-item -->	
+						{% endfor %}
+
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade in" id="hot-jobs">
+					
+					
+
+						
+					
+						
+
+						
+
+						
+					</div><!-- tab-pane -->
+
+					
+						
+
+
+						
+					</div><!-- tab-pane -->
+				</div><!-- tab-content -->
+			</div><!-- trending ads -->		
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Copyright &copy; Busara recruit 2017</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    
+
+  <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'home/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'home/vendor/popper/popper.min.js' %}"></script>
+    <script src="{% static 'home/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'home/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="{% static 'home/js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'home/js/contact_me.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'home/js/agency.min.js' %}"></script>
+
+  </body>
+
+</html>

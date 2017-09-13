@@ -23,51 +23,21 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="brownish-scheme">
+  <body class="brownish-scheme" style="background:#f2f2f2">
 
-    <!-- Preloader -->
-    <div class="mask"><div id="loader"></div></div>
-    <!--/Preloader -->
-
-    <!-- Wrap all page content here -->
-    <div id="wrap">
-
-      
-
-
-      <!-- Make page fluid -->
-      <div class="row">         
-        
-
-
-
-
-        
+    
         <!-- Page content -->
-        <div id="content" class="col-md-12 ">
-		
-		
-		
-		  <h1>Congratulations!.</strong></h1>
-          <p class="lead bold">Your job application for the {{job_position}} position has been successfuly submitted to  {{company_name}}</p>
-
-		  <a href="{% url 'home:home'%}">Home</a>
+		 <div class="container">
+			<div class="panel panel-success" style="width:30%;margin:35%;border-radius:5pt">
+			   <div class="panel-heading" style="color:white;background:#00b33c">Congratulations!.</div>
+               <div class="panel-body">Your job application for the <strong>{{job_position}}</strong> position has been successfuly submitted to  <strong>{{company_name}}</strong></div>
+				<div class="panel-footer"><a href="{% url 'home:home'%}">Home</a></div>
+			</div>
+			
         </div>
         <!-- Page content end -->
 
 
-
-
-
-
-      </div>
-      <!-- Make page fluid-->
-
-
-
-
-    </div>
-    <!-- Wrap all page content end -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>

@@ -19,12 +19,14 @@ def schedule_interview(request,employee_id):
 		interview_type = request.POST['interview_type']
 		location = request.POST['location']
 		interview_date = request.POST['interview_date']
-		#YYYY-MM-DD HH:MM
 		date_object = datetime.strptime(interview_date, '%m/%d/%Y %I:%M %p')
 		formatted_date = date_object.strftime('%Y-%m-%d %H:%M')
 		
 		interview = Interview(employee=employee, interview_type = interview_type, location = location, interview_date=formatted_date)	
 		interview.save()
+		
+		employee.is_shortlisted = True
+		employee.save()
 		
 		interview.send_interview_email(interview)
 		

@@ -83,51 +83,35 @@
                 <ul>
 
                  
-                  <li class="dropdown messages">
+                  <li class="dropdown messages" >
                     <a class="dropdown-toggle" data-toggle="dropdown" href="index.html#">
-                      <span class="badge badge-red" id="user-new-messages">3</span>{{company_name}} </strong> <i class="fa fa-angle-down"></i>
+                      <span class="badge badge-red" id="user-new-messages">{{notifications.count}}</span>{{company_name}} </strong> <i class="fa fa-angle-down"></i>
                     </a>
                    
                     <ul class="dropdown-menu wide arrow red nopadding">
-                      <li><h1>You have <strong>3</strong> new messages</h1></li>
+                      <li ><h1>You have <strong>{{notifications.count}}</strong> new messages</h1></li>
 
+					  {% for notification in notifications %}
                       <li>
                         <a class="cyan" href="index.html#">
                           <div class="profile-photo">
-                            <img src="images/ici-avatar.jpg" alt />
+                            <img src="{% static 'employers/images/profile-photo.jpg' %}" alt />
                           </div>
                           <div class="message-info">
                             <span class="sender">Ing. Imrich Kamarel</span>
                             <span class="time">12 mins</span>
-                            <div class="message-content">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</div>
+                            <div class="message-content">{{notification.message}}</div>
                           </div>
                         </a>
                       </li>
-
-                      
-
-                      
-
-                      <li>
-                        <a class="orange" href="index.html#">
-                          <div class="profile-photo">
-                            <img src="images/george-avatar.jpg" alt />
-                          </div>
-                          <div class="message-info">
-                            <span class="sender">George McCain</span>
-                            <span class="time">6 hours</span>
-                            <div class="message-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
-                          </div>
-                        </a>
-                      </li>
-
+					  {% endfor %}
 
                       <li><a href="index.html#">Check all messages <i class="fa fa-angle-right"></i></a></li>
                     </ul>
                   </li>
 
 				  <li>
-                     <a href="{% url 'employers:logout' %}"><i class="fa fa-power-off"></i> Logout</a>
+                     <a href="{% url 'employers:logout' %}"><i class="fa fa-power-off"></i></a>
                   </li>
 				  
 				  
@@ -287,32 +271,6 @@
 
 
 
-
-
-
-
-
-          <!-- breadcrumbs -->
-          <div class="breadcrumbs">
-            <ol class="breadcrumb">
-              <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-              <li><a href="index.html">Dashboard</a></li>
-              <li class="active">Overview</li>
-            </ol>
-          </div>
-          <!-- /breadcrumbs -->
-
-
-
-
-
-
-          
-          
-
-
-
-
           <!-- content main container -->
           <div class="main">
             
@@ -326,7 +284,7 @@
                 <div class="card card-red hover">
                   <div class="front">        
                     <h1>Created jobs</h1>
-                    <p id="users-count">0</p>
+                    <p id="users-count">{{total_jobs}}</p>
                     <span class="fa-stack fa-2x pull-right">
                       <i class="fa fa-circle fa-stack-2x"></i>
                       <i class="fa fa-user fa-stack-1x"></i>
@@ -344,7 +302,7 @@
                 <div class="card card-cyan hover">
                   <div class="front">        
                     <h1>Candidates</h1>
-                    <p id="orders-count">0</p>
+                    <p id="orders-count">{{total_candidates}}</p>
                     <span class="fa-stack fa-2x pull-right">
                       <i class="fa fa-circle fa-stack-2x"></i>
                       <i class="fa fa-shopping-cart fa-stack-1x"></i>
@@ -363,7 +321,7 @@
                 <div class="card card-green hover">
                   <div class="front">        
                     <h1>Shortlisted candidates</h1>
-                    <p id="sales-count">0</p>
+                    <p id="sales-count">{{shortlisted_candidates}}</p>
                     <span class="fa-stack fa-2x pull-right">
                       <i class="fa fa-circle fa-stack-2x"></i>
                       <i class="fa fa-usd fa-stack-1x"></i>

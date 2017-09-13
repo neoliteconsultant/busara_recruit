@@ -63,21 +63,9 @@
 
           <!-- .nav-collapse -->
           <div class="navbar-collapse">
-            
-
-            
-
+           
             <!-- Content collapsing at 768px to sidebar -->
             <div class="collapsing-content">
-
-
-
-
-
-
-
-
-
               <!-- User Controls -->
               <div class="user-controls">
                 <ul>
@@ -105,10 +93,6 @@
                           </div>
                         </a>
                       </li>
-
-                      
-
-                      
 
                       <li>
                         <a class="orange" href="index.html#">
@@ -216,7 +200,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#" title="Inbox">
+                    <a href="{% url 'interviews:view'%}" title="Inbox">
                       <i class="fa fa-envelope"><span class="overlay-label red60"></span></i>
                       View Interviews
                     </a>
@@ -313,7 +297,7 @@
 
             <a href="{% url 'candidates:profile' candidate.id %}">View Profile</a><br><br>
 
-			 <a style="color:white" role="button" href="{% url 'interviews:schedule' candidate.id %}" class="btn btn-greensea">
+			 <a style="display:none;color:white" role="button" href="{% url 'interviews:schedule' candidate.id %}" class="btn btn-greensea">
            <i class="fa fa-address-card-o" aria-hidden="true"></i>
             <span>Shortlist</span>
         </a>

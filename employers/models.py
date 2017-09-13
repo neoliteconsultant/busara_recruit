@@ -13,7 +13,7 @@ from django.conf import settings
 
 # Create your models here.
 class Employer(models.Model):
-	user = models.OneToOneField(User, null=True)
+	user = models.OneToOneField(User)
 	company_name = models.CharField(blank=False,unique=True, max_length=30)
 	company_website = models.URLField(blank=False,unique=True, max_length=100)
 	phone_number = models.CharField(blank=True, unique=True, max_length=12)

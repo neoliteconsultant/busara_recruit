@@ -129,7 +129,7 @@
                   </li>
 				  
 				   <li>
-                     <a href="{% url 'employers:logout' %}"><i class="fa fa-power-off"></i> Logout</a>
+                     <a href="{% url 'employers:logout' %}"><i class="fa fa-power-off"></i></a>
                   </li>
 
                   
@@ -216,7 +216,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#" title="Inbox">
+                    <a href="{% url 'interviews:view'%}" title="Inbox">
                       <i class="fa fa-envelope"><span class="overlay-label red60"></span></i>
                       View Interviews
                     </a>
@@ -240,24 +240,7 @@
                       View Candidates
                     </a>
                   </li>
-                  <li>
-                    <a href="#" title="Typography">
-                      <i class="fa fa-font"><span class="overlay-label amethyst60"></span></i>
-                      Typography
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="Nestable Lists">
-                      <i class="fa fa-arrows"><span class="overlay-label amethyst40"></span></i>
-                      Nestable Lists
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="Tiles">
-                      <i class="fa fa-th"><span class="overlay-label amethyst40"></span></i>
-                      Tiles
-                    </a>
-                  </li>
+                  
                 </ul>
               </li>
               
@@ -341,7 +324,7 @@
             
             <h4><a href="#">Cover letter</a></h4>
 
-            <p>{{profile.cover_letter}}</p>
+            <p>{{profile.cover_letter|safe}}</p>
 
 			
 

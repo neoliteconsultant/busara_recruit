@@ -88,7 +88,7 @@
                       <span class="badge badge-red" id="user-new-messages">3</span>{{company_name}}</strong> <i class="fa fa-angle-down"></i>
                     </a>
                     <div class="profile-photo">
-                      <img src="images/profile-photo.jpg" alt />
+                      <img src="{% static 'employers/images/profile_image_default.png' %}" alt />
                     </div>
                     <ul class="dropdown-menu wide arrow red nopadding">
                       <li><h1>You have <strong>3</strong> new messages</h1></li>
@@ -129,7 +129,7 @@
                   </li>
 				  
 				   <li>
-                     <a href="{% url 'employers:logout' %}"><i class="fa fa-power-off"></i> Logout</a>
+                     <a href="{% url 'employers:logout' %}"><i class="fa fa-power-off"></i></a>
                   </li>
 
                   
@@ -240,24 +240,7 @@
                       View Candidates
                     </a>
                   </li>
-                  <li>
-                    <a href="typography.html" title="Typography">
-                      <i class="fa fa-font"><span class="overlay-label amethyst60"></span></i>
-                      Typography
-                    </a>
-                  </li>
-                  <li>
-                    <a href="nestable.html" title="Nestable Lists">
-                      <i class="fa fa-arrows"><span class="overlay-label amethyst40"></span></i>
-                      Nestable Lists
-                    </a>
-                  </li>
-                  <li>
-                    <a href="tiles.html" title="Tiles">
-                      <i class="fa fa-th"><span class="overlay-label amethyst40"></span></i>
-                      Tiles
-                    </a>
-                  </li>
+                 
                 </ul>
               </li>
               
@@ -300,29 +283,6 @@
         <div id="content" class="col-md-12">
           
 
-
-
-
-
-
-
-
-          <!-- breadcrumbs -->
-          <div class="breadcrumbs">
-            <ol class="breadcrumb">
-              <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-              <li><a href="index.html">Dashboard</a></li>
-              <li class="active">Overview</li>
-            </ol>
-          </div>
-          <!-- /breadcrumbs -->
-
-
-
-
-
-
-          
           
 
 

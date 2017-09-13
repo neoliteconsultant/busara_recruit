@@ -87,9 +87,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="index.html#">
                       <span class="badge badge-red" id="user-new-messages">3</span>{{company_name}}</strong> <i class="fa fa-angle-down"></i>
                     </a>
-                    <div class="profile-photo">
-                      <img src="images/profile-photo.jpg" alt />
-                    </div>
+                   
                     <ul class="dropdown-menu wide arrow red nopadding">
                       <li><h1>You have <strong>3</strong> new messages</h1></li>
 
@@ -129,7 +127,7 @@
                   </li>
 				  
 				   <li>
-                     <a href="{% url 'employers:logout' %}"><i class="fa fa-power-off"></i> Logout</a>
+                     <a href="{% url 'employers:logout' %}"><i class="fa fa-power-off"></i></a>
                   </li>
 
                   
@@ -240,24 +238,7 @@
                       View Candidates
                     </a>
                   </li>
-                  <li>
-                    <a href="#" title="Typography">
-                      <i class="fa fa-font"><span class="overlay-label amethyst60"></span></i>
-                      Typography
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="Nestable Lists">
-                      <i class="fa fa-arrows"><span class="overlay-label amethyst40"></span></i>
-                      Nestable Lists
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" title="Tiles">
-                      <i class="fa fa-th"><span class="overlay-label amethyst40"></span></i>
-                      Tiles
-                    </a>
-                  </li>
+                 
                 </ul>
               </li>
               
@@ -332,11 +313,11 @@
         <li class="search-result">
           <div class="cover">
             
-            <h4><a href="#">{{ interview.employee.first_name }}</a></h4>
+            <h4><a href="#">{{ interview.interview_type }}</a></h4>
 
-            <p>{{ interview.interview_type }}</p>
-			<p>{{ interview.location }}</p>
-			<p>{{ interview.interview_date }}</p>
+            <p><strong>Candidate</strong> {{ interview.employee.first_name }}</p>
+			<p><strong>Location</strong> {{ interview.location }}</p>
+			<p><strong>Date</strong> {{ interview.interview_date }}</p>
 
           </div>
         </li>

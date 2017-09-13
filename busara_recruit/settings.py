@@ -43,7 +43,9 @@ INSTALLED_APPS = [
 	'employers',
 	'employees',
 	'jobs',
-	'interviews'
+	'interviews',
+	'notifications',
+	'django_summernote'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -77,6 +79,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'busara_recruit.wsgi.application'
+
+# Summer note settings
+SUMMERNOTE_CONFIG = {
+	# Change editor size
+	'width': '100%',
+}
+
 
 
 # Database

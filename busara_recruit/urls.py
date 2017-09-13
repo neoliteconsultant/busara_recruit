@@ -24,4 +24,5 @@ urlpatterns = [
 	url(r'^jobs/', include('jobs.urls')),
 	url(r'^candidates/', include('employees.urls')),
 	url(r'^interviews/', include('interviews.urls')),
+	url(r'^summernote/', include('django_summernote.urls')),
 ]
