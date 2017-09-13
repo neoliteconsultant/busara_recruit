@@ -19,7 +19,7 @@ class Employee(models.Model):
 	email = models.EmailField(blank=False, max_length=35,default="")
 	phone_number = models.CharField(blank=False, max_length=12)
 	address = models.CharField(blank=True, max_length=60)
-	cover_letter = models.CharField(max_length=1500,default='')
+	cover_letter = models.CharField(max_length=17000,default='') #large max_length to accomodate storage of html text
 	resume = models.FileField(upload_to='resume/%Y%m%d/',default='')
 	application_date = models.DateTimeField(auto_now=True)
 	is_shortlisted = models.BooleanField(default=False)
@@ -49,9 +49,10 @@ class JobApplicationThread(threading.Thread):
 		job_title = self.employee.job.title
 		company_name = self.employee.job.employer.company_name
 		candidate_email =  self.employee.email
+		candidate_name = self.employee.first_name+' '+self.employee.last_name
 		
 		params = {'job_title':job_title,
-		'company_name':company_name,'candidate_name': self.employee.first_name, 'candidate_email':candidate_email,
+		'company_name':company_name,'candidate_name': candidate_name, 'candidate_email':candidate_email,
 		"candidate_phone":self.employee.phone_number,"candidate_address":self.employee.address,"cover_letter":
 		self.employee.cover_letter}
 		

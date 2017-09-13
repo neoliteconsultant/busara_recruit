@@ -82,8 +82,9 @@ WSGI_APPLICATION = 'busara_recruit.wsgi.application'
 
 # Summer note settings
 SUMMERNOTE_CONFIG = {
-	# Change editor size
-	'width': '100%',
+    # Change editor size
+    'width': '100%',
+    'height': '480',   
 }
 
 
@@ -107,8 +108,8 @@ EMAIL_HOST_PASSWORD = '2@=VL45qBw4nvu'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-# Settings for file backend that writes emails to a file, for development purposes
-# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+#In memory backend for development
+# EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
 # EMAIL_FILE_PATH = 'D:/busara_recruit/email-messages' 
 
 # Password validation

@@ -6,15 +6,16 @@ from jobs.models import Job
 from employers.models  import Employer 
 from django.test import TestCase, RequestFactory
 
-from .views import create_job
+from .views import create_job,apply_job
 
 from django.contrib.auth.models import User
 from django.http import HttpRequest
 
 class JobTestCase(TestCase):
 
+
 	@classmethod
-	def setUpClass(self):
+	def setUpTestData(self):
 		self.factory = RequestFactory()
 		self.user = User.objects.create_user(username="ann", email="ann@gmail.com",password="1234")		
 
@@ -25,8 +26,7 @@ class JobTestCase(TestCase):
 	
 	#Test for job creation
 	#@skip("Don't want to test")
-	@skip("Don't want to test")
-	def test_create_job(self):
+	def test_successful_job_creation(self):
 		"""Test for successful job creation"""
 		
 		title ="Accountant"
@@ -45,8 +45,8 @@ class JobTestCase(TestCase):
 		request.user = self.user
 		
 		response = create_job(request)
-		#self.assertRedirects(response, '/jobs/view/', status_code=302, target_status_code=200, msg_prefix='', fetch_redirect_response=True)
-		self.assertEqual(response.status_code, 200)
+		self.assertEqual(response.status_code, 302)
+		
 
 		
 		
@@ -54,16 +54,12 @@ class JobTestCase(TestCase):
 	@skip("Don't want to test")
 	def test_apply_job(self):
 		"""Test for successful job application"""
-		username= "lmuka"
-		email= "lmuka@gmail.com"
-		password = "1234"
+		job = Job.objects.create(employer=self.employer,title="Sr. Backend developer",industry="IT and Telecoms",location="Nairobi, Kenya",availability="Part time",description="IT Guru",requirements="Bsc Computer Science")
 		
-		#, kwargs={'username':username,'password':password}
+		request.user = self.user
 		
-		response = self.client.post(reverse('employers:login'),{'username':username,'password':password})
-		#self.assertEqual(response.status_code, 200)
-		self.assertContains(response, "Invalid credentials.")
-		#self.assertRedirects(response, reverse('employers:dashboard'))
+		response = apply_job(request,job.id)
+		self.assertEqual(response.status_code, 302)
         
 		
 	

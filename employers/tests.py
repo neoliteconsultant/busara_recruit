@@ -28,25 +28,25 @@ class EmployerTestCase(TestCase):
 		
 		response = self.client.post(reverse('employers:register'), {'first_name':first_name,'last_name':last_name,'email':email,'username':username,'password':password,'password_confirmation':password_confirmation,'company_name':company_name,'company_website':company_website,'phone_number':phone_number})
 		
-		#self.assertEqual(response.status_code, 200)
+		
 		self.assertRedirects(response, '/employers/email_confirmation/'+email, status_code=302, target_status_code=200, msg_prefix='', fetch_redirect_response=True)
 		#self.assertContains(response, message)
 		
 		
 	#Test for sucessful sign in
-	@skip("Don't want to test")
-	def test_sign_in(self):
+	#@skip("Don't want to test")
+	def test_sign_in_successful(self):
 		"""Test for successful employer sign_in"""
 		username= "lmuka"
 		email= "lmuka@gmail.com"
 		password = "1234"
 		
-		#, kwargs={'username':username,'password':password}
 		
 		response = self.client.post(reverse('employers:login'),{'username':username,'password':password})
-		#self.assertEqual(response.status_code, 200)
-		self.assertContains(response, "Invalid credentials.")
-		#self.assertRedirects(response, reverse('employers:dashboard'))
+		self.assertEqual(response.status_code, 200)
+		#Check we used correct template
+		self.assertTemplateUsed(response, 'employers/login.html')
+		
         
 		
 	

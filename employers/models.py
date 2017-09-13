@@ -38,8 +38,8 @@ class EmailThread(threading.Thread):
 		self.recipient_email = recipient_email
 		
 	def run(self):
-		html_template = get_template('employers/email/sign_up_email_template.html')
-		plaintext_template = get_template('employers/email/sign_up_email_template.txt')
+		html_template = get_template('employers/email/sign_up.html')
+		plaintext_template = get_template('employers/email/sign_up.txt')
 		
 		params = {'username': self.username }
 		
