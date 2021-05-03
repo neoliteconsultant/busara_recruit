@@ -7,8 +7,8 @@ Busara_recruit is Django a web application for managing job applications to Busa
 Before running the application, ensure you have installed and configured
 the following tools
 
-- Django v1.11.5
-- Python v3.6
+- Pip v18.0 or later
+- Python v3.6 or later
 
 
 ### Installation
