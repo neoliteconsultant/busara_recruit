@@ -84,7 +84,7 @@
 								</div>
 
 								<div class="ad-info">
-									<span><a href="{% url 'jobs:detail' job_item.id %}" class="title">{{ job_item.title }}</a> @ <a href="{% url 'jobs:detail' job_item.id %}">{{ job_item.employer.company_name }}</a></span>
+									<span><a href="{% url 'jobs:detail' job_item.id %}" class="title">{{ job_item.title }}</a> @ <a href="{{ job_item.employer.company_website }}">{{ job_item.employer.company_name }}</a></span>
 									<div class="ad-meta">
 										<ul>
 											<li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>{{ job_item.location }} </a></li>
@@ -96,7 +96,7 @@
 								</div><!-- ad-info -->
 								<div class="button">
 							
-									<a href="{% url 'jobs:apply' job_item.id %}" class="btn btn-primary">Apply Now</a>
+									<a href="{% url 'jobs:detail' job_item.id %}" class="btn btn-primary">Apply Now</a>
 								</div>
 							</div><!-- item-info -->
 						</div><!-- ad-item -->	

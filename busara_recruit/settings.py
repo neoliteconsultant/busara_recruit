@@ -12,23 +12,19 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+from dotenv import load_dotenv
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+load_dotenv()
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'c^nzr4^4v420b9qln4&y5zqltf4cb8c2$3k+cyvde5814cv-nc'
-# Production Environment
-# SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['neoliteconsultant.pythonanywhere.com','localhost']
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
@@ -39,22 +35,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'home',
-	'employers',
-	'employees',
-	'jobs',
-	'interviews',
-	'notifications',
-	'django_summernote'
+    'home',
+    'employers',
+    'employees',
+    'jobs',
+    'interviews',
+    'notifications',
+    'django_summernote'
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -72,7 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-				'django.template.context_processors.media'
+                'django.template.context_processors.media'
             ],
         },
     },
@@ -84,13 +80,8 @@ WSGI_APPLICATION = 'busara_recruit.wsgi.application'
 SUMMERNOTE_CONFIG = {
     # Change editor size
     'width': '100%',
-    'height': '480',   
+    'height': '480',
 }
-
-
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -99,21 +90,16 @@ DATABASES = {
     }
 }
 
-#Email API Configuration
+# Email API Configuration
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'busararecruit@gmail.com'
-EMAIL_HOST_PASSWORD = '2@=VL45qBw4nvu'
-#EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-#EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-#In memory backend for development
-# EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
-# EMAIL_FILE_PATH = 'D:/busara_recruit/email-messages' 
-
-# Password validation
-# https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
+# In memory backend for development
+EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'email-messages')
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -130,10 +116,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/1.9/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -144,14 +126,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-
 STATIC_URL = '/static/'
-# Production Environment
-STATIC_ROOT ='/home/neoliteconsultant/busara_recruit/static' 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
-#MEDIA_ROOT = '/home/neoliteconsultant/busara_recruit/media'
-MEDIA_ROOT = 'D:/BUSARA'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

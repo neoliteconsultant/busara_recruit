@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy 
 pipeline {
     agent any
 
@@ -15,6 +16,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+				echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
         }
     }
