@@ -8,7 +8,7 @@ from employees.models import Employee
 from jobs.models import Job
 
 
-# Create your views here.
+
 # Get all candidates who applied for jobs belonging to the current user
 def my_candidates(request):
     user = request.user
@@ -22,7 +22,7 @@ def my_candidates(request):
                   {'candidate_list': candidate_list, 'company_name': employer.company_name})
 
 
-# Create your views here.
+
 # Get candidate profile
 def candidate_profile(request, id):
     user = request.user
